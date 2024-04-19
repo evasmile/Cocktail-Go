@@ -1,1 +1,80 @@
-<h1>working</h1>
+<%- include('header.ejs') %>
+
+
+<section id="home">
+<div class="main">
+
+    <div class="item">
+      <img class="imgMain" src="https://static.itdg.com.br/images/auto-auto/b9c5e1f42b2c0bfcac06171f3033c274/caloria-dos-drinks-famosos.jpg" alt="">
+    </div>
+    <div class="item">
+      <p 
+      style="font-weight: bold;
+      font-size: large;"
+      >Raise your glass and get ready to dive into the world of cocktails! Cocktails are not just drinks; they are a blend of flavors, artistry, and a touch of magic. In this website, we have compiled a list of cocktail ingredient that will inspire you to celebrate the creativity and allure of mixology.</p>
+     <h3>~ Mathonsi Surprise</h3>
+    
+    </div>
+</div>
+
+</section>
+
+<section id="cocktails">
+
+    <h2>Cocktails World</h2>
+    <hr>
+    <h1></h1>
+    <div class="mainCocktailBox">
+
+        <div class="mainCocktailItem">
+
+            <div class="itemTitle"><h3><%= data1.drinks[0].strDrink %></h3></div>
+            <div class="alcoholic"><h4><%= data1.drinks[0].strAlcoholic %></h4></div>
+            <div class="itemPic"><img class="itemPic1" src=<%=data1.drinks[0].strDrinkThumb %> alt=""> </div>
+            <div class="itemIngr">
+                <h3>Ingredients</h3>
+                   <%for (let index = 1; index < 11; index++) { %>
+                
+                <% let words= "strIngredient"+index %>
+                 <% if(data1.drinks[0][words] != null) {%>
+                    <li style="list-style-type: none;">
+                <ul> <%= data1.drinks[0][words] %> </ul>
+            </li>
+                 <% }%>
+                <% }%> 
+            </div>
+            <div class="itemMore">
+                <h5>Instruction</h5>
+                <p><%= data1.drinks[0]['strInstructions'] %></p> </div>
+
+        </div>
+         <div class="mainCocktailItem">
+            <div class="itemTitle"><h3><%= data2.drinks[0].strDrink %></h3></div>
+            <div class="alcoholic"><h4><%= data2.drinks[0].strAlcoholic %></h4></div>
+            <div class="itemPic"><img class="itemPic1" src=<%=data2.drinks[0].strDrinkThumb %> alt=""> </div>
+            <div class="itemIngr">
+                <h3>Ingredients</h3>
+                <%for (let index = 1; index < 11; index++) { %>
+                    
+                   <% let words= "strIngredient"+index %>
+                    <% if(data2.drinks[0][words] != null) {%>
+                        <li style="list-style-type: none;">
+                   <ul> <%= data2.drinks[0][words] %> </ul>
+                </li>
+                    <% }%>
+                  
+                   <% }%> 
+            </div>
+            <div class="itemMore">
+                <h5>Instruction</h5>
+                <p><%= data2.drinks[0]['strInstructions'] %></p>  </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<%= data2 %>
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,77 @@
+
+
+.main{
+    display: flex;
+    flex-direction: row;
+     
+    justify-content: center;
+    align-items: center;
+}
+
+.item{
+    flex: 1;
+  
+}
+
+.imgMain{
+    max-height: 95%;
+    max-width: 95%;
+}
+
+.mainCocktailBox{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+}
+
+.mainCocktailItem{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 40px 40px 200px 200px 200px;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    background-color: rgb(230, 226, 226);
+}
+
+.itemTitle{
+    max-width: 80%;
+    height: 20%;
+    grid-column: 1/4;
+    grid-row: 1;
+ 
+}
+.alcoholic{
+    max-width: 80%;
+    height: 20%;
+    grid-column: 1/4;
+    grid-row: 2;
+}
+.itemPic{
+    max-height: 80%;
+    max-width: 80%;
+    grid-column: 1/5;
+    grid-row: 3/5;
+   
+}
+.itemIngr{
+   grid-column: 5;
+   grid-row: 2/4;
+    max-width: 100%;
+    
+}
+.itemMore{
+   
+    grid-column: 1/5;
+    grid-row: 5;
+ 
+}
+
+.itemPic1{
+    height: 100%;
+    width: 100%;
+}
