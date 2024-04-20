@@ -23,58 +23,49 @@
 
     <h2>Cocktails World</h2>
     <hr>
-    <h1></h1>
+  
+  <form action="/" method="post">
+
+    <input type="text" required placeholder="Search by letter" name="letter" 
+   
+    >
+    <button type="submit">SEARCH</button>
+  </form>
+    
+
+    <%if(locals.data1){ %>
     <div class="mainCocktailBox">
-
+        <% for(let index = 1 ; index < data1.drinks.length; index++ ){ %>
         <div class="mainCocktailItem">
-
-            <div class="itemTitle"><h3><%= data1.drinks[0].strDrink %></h3></div>
-            <div class="alcoholic"><h4><%= data1.drinks[0].strAlcoholic %></h4></div>
-            <div class="itemPic"><img class="itemPic1" src=<%=data1.drinks[0].strDrinkThumb %> alt=""> </div>
+            <div class="itemTitle"><h3><%= data1.drinks[index].strDrink %></h3></div>
+            <div class="alcoholic"><h4><%= data1.drinks[index].strAlcoholic %></h4></div>
+            <div class="itemPic"><img class="itemPic1" src=<%=data1.drinks[index].strDrinkThumb %> alt=""> </div>
             <div class="itemIngr">
                 <h3>Ingredients</h3>
-                   <%for (let index = 1; index < 11; index++) { %>
+                   <%for (let index1 = 1; index1 < 11; index1++) { %>
                 
-                <% let words= "strIngredient"+index %>
-                 <% if(data1.drinks[0][words] != null) {%>
-                    <li style="list-style-type: none;">
-                <ul> <%= data1.drinks[0][words] %> </ul>
+                <% let words= "strIngredient"+index1 %>
+                 <% if(data1.drinks[index][words] != null) {%>
+                    <li style="list-style-type: none; padding: 1px; margin: 0;">
+                <ul style="margin: 0;padding: 1px;"> <%= data1.drinks[index][words] %> </ul>
             </li>
                  <% }%>
                 <% }%> 
             </div>
             <div class="itemMore">
                 <h5>Instruction</h5>
-                <p><%= data1.drinks[0]['strInstructions'] %></p> </div>
+                <p><%= data1.drinks[index]['strInstructions'] %></p> </div>
 
         </div>
-         <div class="mainCocktailItem">
-            <div class="itemTitle"><h3><%= data2.drinks[0].strDrink %></h3></div>
-            <div class="alcoholic"><h4><%= data2.drinks[0].strAlcoholic %></h4></div>
-            <div class="itemPic"><img class="itemPic1" src=<%=data2.drinks[0].strDrinkThumb %> alt=""> </div>
-            <div class="itemIngr">
-                <h3>Ingredients</h3>
-                <%for (let index = 1; index < 11; index++) { %>
-                    
-                   <% let words= "strIngredient"+index %>
-                    <% if(data2.drinks[0][words] != null) {%>
-                        <li style="list-style-type: none;">
-                   <ul> <%= data2.drinks[0][words] %> </ul>
-                </li>
-                    <% }%>
-                  
-                   <% }%> 
-            </div>
-            <div class="itemMore">
-                <h5>Instruction</h5>
-                <p><%= data2.drinks[0]['strInstructions'] %></p>  </div>
-        </div>
+        
+        <% }%> 
     </div>
-
-
+    <% }else { %>
+        <h2 style="color: red; margin-bottom: 20px;">Please only type a single letter to search</h2>
+   <% } %>
+  
 </section>
 
 
-<%= data2 %>
 
 <%- include('footer.ejs') %>

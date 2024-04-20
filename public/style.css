@@ -1,5 +1,11 @@
 
+body{
+    padding-bottom: 90px;
+}
 
+.nav1{
+    position: fixed;
+}
 .main{
     display: flex;
     flex-direction: row;
@@ -20,48 +26,49 @@
 
 .mainCocktailBox{
     display: flex;
-    
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: rgb(245, 245, 245);
-    padding: 10px;
+    padding: 2px;
 }
 
 .mainCocktailItem{
     display: grid;
+    flex: 0 0 40% ; 
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 40px 200px 200px 200px;
-    padding: 10px;
-    margin: 10px;
-    width: 50%;
+    grid-template-rows: 10% 10% 20% 20% 20%;
+    padding: 5px;
+    margin: 5px;
+    width: 20%;
     background-color: rgb(230, 226, 226);
 }
 
 .itemTitle{
-    max-width: 80%;
+    width: 80%;
     height: 20%;
     grid-column: 1/4;
     grid-row: 1;
  
 }
 .alcoholic{
-    max-width: 80%;
+    width: 80%;
     height: 20%;
-    grid-column: 1/4;
+    grid-column: 1/5;
     grid-row: 2;
 }
 .itemPic{
-    max-height: 80%;
-    max-width: 80%;
+    height: 100%;
+    width: 100%;
     grid-column: 1/5;
     grid-row: 3/5;
    
 }
 .itemIngr{
-   grid-column: 5;
-   grid-row: 2/4;
-    max-width: 100%;
+   grid-column: 6;
+   grid-row: 3/4;
+    max-width: 60%;
     
 }
 .itemMore{
@@ -74,4 +81,19 @@
 .itemPic1{
     height: 100%;
     width: 100%;
+    padding: 5px;
+}
+
+@media (max-width:768px) {
+    .mainCocktailBox{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .main{
+        flex-direction: column;
+    }
+
+    .mainCocktailItem{
+    width: 80%;
+    }
 }

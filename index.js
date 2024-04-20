@@ -12,21 +12,35 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.get('/',async function  (req,res){
 let result1 = null ;
-let result2 = null;
+
  try{
-    const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php');
-    const response2 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+    const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a');
+
      result1 = response1.data
-     result2 = response2.data
-    console.log(result1)
+    
+
 
  }catch(error){
    console.log(error)
  }
-
-    res.render('home.ejs',{data1:result1,data2:result2})
+  
+    res.render('home.ejs',{data1:result1})
 })
 
+app.post('/', async function(req,res){
+  let result1=null;
+  try{
+    console.log(req.body)
+    const response1 = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${req.body.letter}`);
+
+    result1 = response1.data;
+   
+
+  }catch(error){
+    console.log(error)
+  }
+  res.render('home.ejs',{data1:result1})
+})
 
 
 app.listen('3000',function(){
